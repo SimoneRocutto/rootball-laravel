@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
   <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+  <link rel="stylesheet" href="{{ mix('css/style.css') }}" />
   <title>@yield('title')</title>
 </head>
 
