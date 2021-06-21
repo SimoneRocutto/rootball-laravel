@@ -1,0 +1,16 @@
+.hidden {
+  z-index: -100 !important;
+  opacity: 0 !important;
+}
+
+.slided-out {
+  transform: translateX(-100vw);
+}
+
+.transition-opacity {
+  transition: opacity 1s ease;
+}
+
+.transition-transform {
+  transition: transform 1s ease;
+}

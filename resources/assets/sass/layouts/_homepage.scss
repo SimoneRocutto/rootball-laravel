@@ -1,0 +1,127 @@
+@use '../abstracts' as *;
+
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  background: var(--clr-primary-800);
+  background-repeat: no-repeat;
+  background-size: cover;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../../images/trees-very-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+    transition: clip-path 1s ease;
+  }
+}
+
+.landing-wrapper.full-size::before {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.landing-title {
+  color: transparent;
+  line-height: 18vh;
+  font-size: 22vh;
+  background: url(../../images/trees-very-dark.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: text;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 100vh;
+
+  @include max-mq(small) {
+    font-size: 10vh;
+  }
+}
+
+.cta-box {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  margin-top: 70vh;
+  z-index: 10;
+}
+
+.cta-button {
+  height: 3rem;
+}
+
+.landing-subtitle-box {
+  z-index: 10;
+  margin-top: 14vh;
+}
+
+.landing-subtitle {
+  color: var(--clr-neutral-300);
+  font-size: var(--fs-100);
+}
+
+// introduction
+
+.intro-wrapper {
+  background: var(--clr-neutral-800);
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-title-box {
+  margin-top: 30vh;
+  @include max-mq(extra-small) {
+    align-self: center;
+  }
+}
+
+.intro-title {
+  color: var(--clr-neutral-300);
+  line-height: 18vh;
+  font-size: 17vh;
+  
+  @include max-mq(medium) {
+    font-size: 10vh;
+  }
+  
+  @include max-mq(small) {
+    font-size: 7vh;
+  }
+  @include max-mq(extra-small) {
+    font-size: 5vh;
+  }
+}
+
+.intro-text-box {
+  margin-top: 15vh;
+  align-self: center;
+}
+
+.intro-paragraph {
+  color: var(--clr-neutral-300);
+  margin-bottom: 1vh;
+}
+
+.second-slide__btn-box {
+  margin-top: 7vh;
+  align-self: center;
+}
+
+.second-slide__btn {
+  background: transparent;
+  border: none;
+  color: var(--clr-neutral-300);
+  font-size: 3rem;
+}

@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    // text-rendering: optimizeSpeed;
+    line-height: 1.5; // improves readability
+}  
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// lets the navbar not rearrange layout when sidebar is not needed
+
+html {
+  overflow-y: scroll;
+}
+
+
+// img {
+//     max-width: 100%;
+//     display: block;
+//   }
+  

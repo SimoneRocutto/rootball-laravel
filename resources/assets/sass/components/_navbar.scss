@@ -1,0 +1,171 @@
+@use '../abstracts' as *;
+
+/*-----------------------------------*\
+  #NAVBAR-STYLING
+\*-----------------------------------*/
+
+$navbarBackground: map-get(map-get($colors, neutral), 900);
+
+.navbar {
+  min-width: 100%;
+  background: mix($navbarBackground, transparent, 70%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  // position: absolute;
+  z-index: 10;
+  height: 8rem;
+
+  @include max-mq(medium) {
+    flex-wrap: wrap;
+  }
+}
+
+// landing-page specific styles
+.navbar-landing {
+  position: absolute;
+}
+
+// hamburger icon (button)
+
+.navbar__toggle {
+  background-color: transparent;
+  border: transparent;
+  height: 3rem;
+  width: 3rem;
+  margin-inline: 3rem;
+
+  @include min-mq(medium) {
+    display: none;
+  }
+}
+
+// hamburger icon style
+
+.toggle__lines {
+  display: flex;
+  width: 2.5rem;
+  height: 0.3rem;
+  border-radius: 3px;
+  background-color: var(--clr-neutral-300);
+  transition: all 0.5s ease;
+
+  &::before, &::after {
+    content: '';
+    border-radius: inherit;
+    background-color: inherit;
+    transition: inherit;
+    position: absolute;
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+  }
+  &::before {
+    transform: translateY(-0.7rem);
+  }
+  &::after {
+    transform: translateY(0.7rem);
+  }
+}
+
+// transition from hamburger to cross
+
+.dropdown-is-open .toggle__lines {
+  width: 0;
+  &::before {
+    transform: rotateZ(45deg);
+  }
+  &::after {
+    transform: rotateZ(-45deg);
+  }
+}
+
+// ul element
+
+.navlist {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding-right: 3rem;
+  width: 100%;
+  white-space: nowrap;
+  z-index: -1;
+  
+  // small screen navbar styles
+  @include max-mq(medium) {
+      background: mix($navbarBackground, transparent, 70%);
+      flex-direction: column;
+      align-items: unset;
+      padding-left: 3rem;
+      margin-block: 0;
+      position: relative;
+      overflow: hidden;
+
+      // navlist closing transition
+      transition: opacity 0.3s ease-out;
+      opacity: 0;
+  }
+}
+
+// this class is applied only after 0.3s 
+// from the click on the cross icon have passed
+.dropdown-is-hidden .navlist {
+  @include max-mq(medium) {
+    display: none;
+  }
+}
+
+// navlist opening transition
+.dropdown-is-open .navlist {
+  @include max-mq(medium) {
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+  }
+}
+
+.navlist__li {
+  margin-inline: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.navlist__a {
+  color: var(--clr-neutral-300);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+// logo container (a)
+
+.navbar__logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 6rem;
+  margin-block: 1rem;
+  margin-left: 3rem;
+  text-decoration: none;
+}
+
+.logo__word {
+  margin-inline: 2rem;
+  color: var(--clr-neutral-300);
+  font-size: 2.5rem;
+  font-weight: 300;
+
+  @include max-mq(extra-small) {
+    display: none;
+  }
+}
+
+// logo svg styling
+
+.navbar__logo svg {
+  width: auto;
+  height: 100%;
+  &>g {
+    fill: var(--clr-neutral-300);
+  }
+}
